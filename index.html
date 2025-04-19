@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GenAI-Driven Automation and Insights</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>GenAI-Driven Automation and Insights</h1>
+
+    <!-- Resume Category Prediction -->
+    <h2>Resume Category Prediction</h2>
+    <form method="POST">
+        <textarea name="resume_text" rows="5" cols="60" placeholder="Enter resume text here..."></textarea><br>
+        <button type="submit">Predict</button>
+    </form>
+    {% if resume_output %}
+        <p><strong>Prediction:</strong> {{ resume_output }}</p>
+    {% endif %}
+
+    <!-- Sales Price Forecasting -->
+    <h2>Sales Price Forecasting</h2>
+    <form method="POST">
+        Store ID: <input type="text" name="store_id" placeholder="e.g., CA_1"><br>
+        Item ID: <input type="text" name="item_id" placeholder="e.g., HOBBIES_1_001"><br>
+        Week: <input type="number" name="week" placeholder="e.g., 11101"><br>
+        <button type="submit">Forecast</button>
+    </form>
+    {% if sales_output %}
+        <p><strong>Forecasted Price:</strong> {{ sales_output }}</p>
+    {% endif %}
+
+    <!-- AI Chatbot -->
+    <h2>AI Chatbot</h2>
+    <form method="POST">
+        <input type="text" name="chat_input" size="60" placeholder="Ask me anything...">
+        <button type="submit">Send</button>
+    </form>
+    {% if chatbot_response %}
+        <p><strong>Bot:</strong> {{ chatbot_response }}</p>
+    {% endif %}
+</body>
+</html>
